@@ -20,7 +20,7 @@ dfp_pips="yubikey-manager"
 git_installer(){ # Function for installing Git
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
     #pass git url as arg $1
-    cd  "$USER"/Downloads/Programs || mkdir -p "$USER"/Downloads/Programs && cd  "$USER"/Downloads/Programs || exit
+    cd  ~/Downloads/Programs || mkdir -p ~/Downloads/Programs && cd  ~/Downloads/Programs || exit
     git clone "$1"
     cd git_name || printf "Something is wrong\nThat directory doesn't exist here"
     sudo -H pip install -r requirements.txt -I
@@ -28,14 +28,14 @@ git_installer(){ # Function for installing Git
 git_update(){
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
     #pass git url as arg $1
-    cd  "$USER"/Downloads/Programs || echo "assuming no git downloads" && exit
+    cd  ~/Downloads/Programs || echo "assuming no git downloads" && exit
     cd git_name || printf "Something is wrong\nThat directory doesn't exist here"
     git pull "$1"
 }
 inteltech_download(){ #which download is passed as argument
     downloaded_inteltech_path="$USER/Desktop/$1"
-    curl -u osint9:book143wt -O --output-dir "$USER"/Desktop https://inteltechniques.com/osintbook9/"{$1}".zip
-    unzip "$downloaded_inteltech_path".zip -d  "$USER"/Desktop/
+    curl -u osint9:book143wt -O --output-dir ~/Desktop https://inteltechniques.com/osintbook9/"{$1}".zip
+    unzip "$downloaded_inteltech_path".zip -d  ~/Desktop/
     rm "$downloaded_inteltech_path".zip
 }
 setup_firefox(){
@@ -45,9 +45,9 @@ setup_firefox(){
      if [ "$os" == "Darwin" ];then
         #open /Applications/Firefox.app/ #FIXME: might be best to open firefox and close, but could be an issue
         cp -R ff-template/* ~/Library/Application\ Support/Firefox/Profiles/*.default-release
-        rm -rf "$USER"/Desktop/ff-template __MACOSX
+        rm -rf ~/Desktop/ff-template __MACOSX
     elif [ "$os" == "Linux" ];then
-        cp -R "$USER"/.mozilla/firefox/ff-template/* "$USER"/.mozilla/firefox/*.default-release
+        cp -R ~/.mozilla/firefox/ff-template/* ~/.mozilla/firefox/*.default-release
     else
         #assume not linux or mac
         echo "firefox not set up"
@@ -91,8 +91,8 @@ gpg_generator(){
     # //https://gist.github.com/ixdy/6fdd1ecea5d17479a6b4dab4fe1c17eb
     printf "pinentry-program /usr/local/MacGPG2/libexec/pinentry-mac.app/Contents/MacOS/pinentry-mac
     enable-ssh-support\ndefault-cache-ttl 60\nmax-cache-ttl 120"|sudo tee /.gnupg/gpg-agent.conf
-    printf "export GPG_TTY=\"$(tty)\"\nexport SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)\ngpgconf --launch gpg-agent"  >> "$USER"/.bash_profile
-    printf 'alias ssh="gpg-connect-agent updatestartuptty /bye > /dev/null; ssh"\nalias scp="gpg-connect-agent updatestartuptty /bye > /dev/null; scp"'>> "$USER"/.bash_profile
+    printf "export GPG_TTY=\"$(tty)\"\nexport SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)\ngpgconf --launch gpg-agent"  >> ~/.bash_profile
+    printf 'alias ssh="gpg-connect-agent updatestartuptty /bye > /dev/null; ssh"\nalias scp="gpg-connect-agent updatestartuptty /bye > /dev/null; scp"'>> ~/.bash_profile
     #require touch on yubikey
     ykman openpgp set-touch aut on
     ykman openpgp set-touch enc on
@@ -172,8 +172,8 @@ macos_install_osint_tools(){
     inteltech_download tools
     inteltech_download mac-files
     downloaded_inteltech_path="$USER/Desktop/mac-files"
-    cp "$downloaded_inteltech_path"/scripts/*  "$USER"/Documents/scripts/
-    cp "$downloaded_inteltech_path"/icons/*  "$USER"/Documents/icons/  
+    cp "$downloaded_inteltech_path"/scripts/*  ~/Documents/scripts/
+    cp "$downloaded_inteltech_path"/icons/*  ~/Documents/icons/  
     sudo cp "$downloaded_inteltech_path"/shortcuts/* /usr/share/applications/
     rm -rf "$downloaded_inteltech_path"
     rm -rf mac-files __MACOSX
@@ -245,8 +245,8 @@ linux_install_osint_tools(){
     #install vm files from intel techniques website
     inteltech_download vm-files
     downloaded_inteltech_path="$USER/Desktop/vm-files"
-    cp "$downloaded_inteltech_path"/scripts/*  "$USER"/Documents/scripts/
-    cp "$downloaded_inteltech_path"/icons/*  "$USER"/Documents/icons/  
+    cp "$downloaded_inteltech_path"/scripts/*  ~/Documents/scripts/
+    cp "$downloaded_inteltech_path"/icons/*  ~/Documents/icons/  
     sudo cp "$downloaded_inteltech_path"/shortcuts/* /usr/share/applications/
     rm -rf "$downloaded_inteltech_path"
 
@@ -256,7 +256,7 @@ linux_install_osint_tools(){
     inteltech_download tools
     downloaded_inteltech_path="$USER/Desktop/tools"
     #install caller id
-    cd "$USER"/Documents/scripts || printf "Something is wrong\nThat directory doesn't exist here"
+    cd ~/Documents/scripts || printf "Something is wrong\nThat directory doesn't exist here"
     curl -u osint9:book143wt -O  https://inteltechniques.com/osintbook9/cid.sh
     chmod +x cid.sh
     curl -u osint9:book143wt -O  https://inteltechniques.com/osintbook9/cid.desktop
@@ -306,7 +306,7 @@ linux_install_osint_tools(){
     sleep 3 #pause for user to read
     echo "Double Click for GUI or java -jar ripme.jar for CLI" 
     sleep 1
-    cd  "$USER"/Downloads/Programs || printf "Something is wrong\nThat directory doesn't exist here"
+    cd  ~/Downloads/Programs || printf "Something is wrong\nThat directory doesn't exist here"
     wget https://github.com/ripmeapp/ripme/releases/latest/download/ripme.jar
     chmod +x ripme.jar
 
@@ -320,7 +320,7 @@ linux_install_osint_tools(){
 
 base_setup(){
     # Make Directories
-    mkdir -p "$USER"/Downloads/Programs "$USER"/Documents/scripts "$USER"/Documents/icons
+    mkdir -p ~/Downloads/Programs ~/Documents/scripts ~/Documents/icons
     #install required pip using python3.9 pip3
     install_git_pip
 
