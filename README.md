@@ -3,8 +3,13 @@
 
 
 # Script Usage & Install 
+## Install 
+`git clone https://github.com/gitayam/Research-and-Privacy.git && chmod 755 ./Research-and-Privacy/OSINT_setup.sh`
+## Configure
 Make the download script executable using the following command in the Terminal App
 `chmod 755 ./OSINT_setup.sh`
+## Use
+`./OSINT_setup.sh`
 
 # System Requirements 
 macOS or Debian Based Linux
