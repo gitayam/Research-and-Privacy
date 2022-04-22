@@ -17,11 +17,14 @@ base_pips="coloredlogs censys rich testresources lxml matplotlib xeuledoc pipenv
 osint_pips="snscrape gallery-dl yt-dlp youtube-tool nested-lookup internetarchive ripgrepy waybackpy search-that-hash h8mail streamlink Instalooter Instaloader toutatis redditsfinder bdfr beautifulsoup4 bs4 socialscan holehe webscreenshot"
 osint_gits="NickSanzotta/linkScrape.git mxrch/GHunt.git AmIJesse/Elasticsearch-Crawler.git twintproject/twint Und3rf10w/kali-anonsurf AzizKpln/Moriarty-Project soxoj/maigret megadose/holehe smicallef/spiderfoot.git Lazza/Carbon14 sherlock-project/sherlock.git WebBreacher/WhatsMyName.git martinvigo/email2phonenumber.git aboul3la/Sublist3r.git s0md3v/Photon.git GuidoBartoli/sherloq.git opsdisk/metagoofil.git MalloyDelacroix/DownloaderForReddit.git laramies/theHarvester.git lanmaster53/recon-ng.git"
 dfp_pips="yubikey-manager"
+program_dir="$~/Downloads/Programs"
+script_dir="~/Documents/scripts"
+icon_dir="$~/Documents/icons"
 ### Functions ### 
 git_installer(){ # Function for installing Git
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
     #pass git url as arg $1
-    cd  ~/Downloads/Programs || mkdir -p ~/Downloads/Programs && cd  ~/Downloads/Programs || exit
+    cd  $program_dir || mkdir -p $program_dir && cd  $program_dir || exit
     git clone "$1"
     cd git_name || printf "Something is wrong\nThat directory doesn't exist here"
     sudo -H pip install -r requirements.txt -I
@@ -29,7 +32,7 @@ git_installer(){ # Function for installing Git
 git_update(){
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
     #pass git url as arg $1
-    cd  ~/Downloads/Programs || echo "assuming no git downloads" && exit
+    cd  $program_dir || echo "assuming no git downloads" && exit
     cd git_name || printf "Something is wrong\nThat directory doesn't exist here"
     git pull "$1"
 }
@@ -84,7 +87,7 @@ gpg_generator(){
     if [ "$gpg_response" == "y" ];then
         ./gpg-provision
     else
-        printf "When you are ready, navigate to ~/Downloads/Programs/gpg-provision/gpg-provision\nrun:./gpg-provision"
+        printf "When you are ready, navigate to $program_dir/gpg-provision/gpg-provision\nrun:./gpg-provision"
         printf "This will generate gpg key pairs with ssh subkeys and place them all inside a Yubikey"
     fi
 
@@ -119,7 +122,7 @@ macos_upgrade_all(){
     softwareupdate -ia
 }
 macos_update_icons(){
-    ln -s ~/Documents/scripts/ /Applications/ 
+    ln -s $script_dir/ /Applications/ 
     defaults write com.apple.dock show-recents -bool FALSE
     defaults write com.apple.dock tilesize -int 32
     defaults write com.apple.dock persistent-apps -array
@@ -174,8 +177,8 @@ macos_install_osint_tools(){
     inteltech_download tools
     inteltech_download mac-files
     downloaded_inteltech_path="$USER/Desktop/mac-files"
-    cp "$downloaded_inteltech_path"/scripts/*  ~/Documents/scripts/
-    cp "$downloaded_inteltech_path"/icons/*  ~/Documents/icons/  
+    cp "$downloaded_inteltech_path"/scripts/*  $script_dir/
+    cp "$downloaded_inteltech_path"/icons/*  $icon_dir/  
     sudo cp "$downloaded_inteltech_path"/shortcuts/* /usr/share/applications/
     rm -rf "$downloaded_inteltech_path"
     rm -rf mac-files __MACOSX
@@ -183,25 +186,25 @@ macos_install_osint_tools(){
     sudo -H python3 -m pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 sudo -H python3 -m pip install -U
 
     ##apply icons to script
-    cd ~/Documents/scripts || printf "Something is wrong\nThat directory doesn't exist here"
-    fileicon set Domain\ Tool ~/Documents/icons/domains.png
-    fileicon set Breaches-Leaks\ Tool ~/Documents/icons/elasticsearch.png
-    fileicon set WebScreenShot ~/Documents/icons/eyewitness.png
-    fileicon set Gallery\ Tool ~/Documents/icons/gallery.png
-    fileicon set HTTrack ~/Documents/icons/httrack.png
-    fileicon set Instagram\ Tool ~/Documents/icons/instagram.png
-    fileicon set Internet\ Archive\ Tool ~/Documents/icons/internetarchive.png
-    fileicon set Metadata\ Tool ~/Documents/icons/metadata.png
-    fileicon set Metagoofil ~/Documents/icons/metagoofil.png
-    fileicon set OSINT\ Tools ~/Documents/icons/tools.png
-    fileicon set Recon-NG ~/Documents/icons/recon-ng.png
-    fileicon set Reddit\ Tool ~/Documents/icons/reddit.png
-    fileicon set Spiderfoot ~/Documents/icons/spiderfoot.png
-    fileicon set Updates ~/Documents/icons/updates.png
-    fileicon set Username\ Tool ~/Documents/icons/usertool.png
-    fileicon set Video\ Download\ Tool ~/Documents/icons/youtube-dl.png
-    fileicon set Video\ Utilities ~/Documents/icons/ffmpeg.png
-    fileicon set Video\ Stream\ Tool ~/Documents/icons/streamlink.png
+    cd $script_dir || printf "Something is wrong\nThat directory doesn't exist here"
+    fileicon set Domain\ Tool $icon_dir/domains.png
+    fileicon set Breaches-Leaks\ Tool $icon_dir/elasticsearch.png
+    fileicon set WebScreenShot $icon_dir/eyewitness.png
+    fileicon set Gallery\ Tool $icon_dir/gallery.png
+    fileicon set HTTrack $icon_dir/httrack.png
+    fileicon set Instagram\ Tool $icon_dir/instagram.png
+    fileicon set Internet\ Archive\ Tool $icon_dir/internetarchive.png
+    fileicon set Metadata\ Tool $icon_dir/metadata.png
+    fileicon set Metagoofil $icon_dir/metagoofil.png
+    fileicon set OSINT\ Tools $icon_dir/tools.png
+    fileicon set Recon-NG $icon_dir/recon-ng.png
+    fileicon set Reddit\ Tool $icon_dir/reddit.png
+    fileicon set Spiderfoot $icon_dir/spiderfoot.png
+    fileicon set Updates $icon_dir/updates.png
+    fileicon set Username\ Tool $icon_dir/usertool.png
+    fileicon set Video\ Download\ Tool $icon_dir/youtube-dl.png
+    fileicon set Video\ Utilities $icon_dir/ffmpeg.png
+    fileicon set Video\ Stream\ Tool $icon_dir/streamlink.png
 
     macos_update_icons
 
@@ -247,8 +250,8 @@ linux_install_osint_tools(){
     #install vm files from intel techniques website
     inteltech_download vm-files
     downloaded_inteltech_path="$USER/Desktop/vm-files"
-    cp "$downloaded_inteltech_path"/scripts/*  ~/Documents/scripts/
-    cp "$downloaded_inteltech_path"/icons/*  ~/Documents/icons/  
+    cp "$downloaded_inteltech_path"/scripts/*  $script_dir/
+    cp "$downloaded_inteltech_path"/icons/*  $icon_dir/  
     sudo cp "$downloaded_inteltech_path"/shortcuts/* /usr/share/applications/
     rm -rf "$downloaded_inteltech_path"
 
@@ -258,7 +261,7 @@ linux_install_osint_tools(){
     inteltech_download tools
     downloaded_inteltech_path="$USER/Desktop/tools"
     #install caller id
-    cd ~/Documents/scripts || printf "Something is wrong\nThat directory doesn't exist here"
+    cd $script_dir || printf "Something is wrong\nThat directory doesn't exist here"
     curl -u osint9:book143wt -O  https://inteltechniques.com/osintbook9/cid.sh
     chmod +x cid.sh
     curl -u osint9:book143wt -O  https://inteltechniques.com/osintbook9/cid.desktop
@@ -308,7 +311,7 @@ linux_install_osint_tools(){
     sleep 3 #pause for user to read
     echo "Double Click for GUI or java -jar ripme.jar for CLI" 
     sleep 1
-    cd  ~/Downloads/Programs || printf "Something is wrong\nThat directory doesn't exist here"
+    cd  $program_dir || printf "Something is wrong\nThat directory doesn't exist here"
     wget https://github.com/ripmeapp/ripme/releases/latest/download/ripme.jar
     chmod +x ripme.jar
 
@@ -322,7 +325,7 @@ linux_install_osint_tools(){
 
 base_setup(){
     # Make Directories
-    mkdir -p ~/Downloads/Programs ~/Documents/scripts ~/Documents/icons
+    mkdir -p "$program_dir" "$script_dir" "$icon_dir"
     #install required pip using python3.9 pip3
     install_git_pip
 
