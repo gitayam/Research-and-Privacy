@@ -13,7 +13,8 @@
         exit 1
     fi
 ### Global Variables ###
-osint_pips="snscrape gallery-dl yt-dlp youtube-tool nested-lookup internetarchive ripgrep waybackpy search-that-hash h8mail streamlink Instalooter Instaloader toutatis redditsfinder bdfr beautifulsoup4 bs4 lxml matplotlib xeuledoc socialscan holehe testresources pipenv webscreenshot"
+base_pips="coloredlogs censys rich testresources lxml matplotlib xeuledoc pipenv"
+osint_pips="snscrape gallery-dl yt-dlp youtube-tool nested-lookup internetarchive ripgrepy waybackpy search-that-hash h8mail streamlink Instalooter Instaloader toutatis redditsfinder bdfr beautifulsoup4 bs4 socialscan holehe webscreenshot"
 osint_gits="NickSanzotta/linkScrape.git mxrch/GHunt.git AmIJesse/Elasticsearch-Crawler.git twintproject/twint Und3rf10w/kali-anonsurf AzizKpln/Moriarty-Project soxoj/maigret megadose/holehe smicallef/spiderfoot.git Lazza/Carbon14 sherlock-project/sherlock.git WebBreacher/WhatsMyName.git martinvigo/email2phonenumber.git aboul3la/Sublist3r.git s0md3v/Photon.git GuidoBartoli/sherloq.git opsdisk/metagoofil.git MalloyDelacroix/DownloaderForReddit.git laramies/theHarvester.git lanmaster53/recon-ng.git"
 dfp_pips="yubikey-manager"
 ### Functions ### 
@@ -67,8 +68,9 @@ install_git_pip(){
         #assume not linux or mac
         echo "Something is wrong, not detected as macOS or Linux"
     fi
-
-     #install required pip using python3.9 pip3
+    #install base level pips
+    for pip_pkg in $base_pips;do  sudo pip3 install "$pip_pkg";done
+    #install required pip using python3.9 pip3
     for pip_pkg in $osint_pips;do  sudo pip3 install "$pip_pkg";done
     #install several git repos
     for git_repo in $osint_gits;do git_installer "https://github.com/$git_repo";done
