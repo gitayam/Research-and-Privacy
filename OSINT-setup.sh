@@ -24,7 +24,7 @@ icon_dir="~/Documents/Icons"
 git_installer(){ # Function for installing Git
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
     #pass git url as arg $1 and identify path for git download as program dir
-    git clone "$1" $program_dir/$git_name
+    git clone "$1" "$program_dir"/"$git_name".git
     cd $program_dir/$git_name || printf "Something is wrong\nThat directory doesn't exist here\n"
     pip3 install -r requirements.txt -I
 }
