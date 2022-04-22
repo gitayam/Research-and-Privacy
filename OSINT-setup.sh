@@ -15,7 +15,7 @@
 ### Global Variables ###
 base_pips="coloredlogs censys rich testresources lxml matplotlib xeuledoc pipenv"
 osint_pips="snscrape gallery-dl yt-dlp youtube-tool nested-lookup internetarchive ripgrepy waybackpy search-that-hash h8mail streamlink Instalooter Instaloader toutatis redditsfinder bdfr beautifulsoup4 bs4 socialscan holehe webscreenshot"
-osint_gits="NickSanzotta/linkScrape.git mxrch/GHunt.git AmIJesse/Elasticsearch-Crawler.git twintproject/twint Und3rf10w/kali-anonsurf AzizKpln/Moriarty-Project soxoj/maigret megadose/holehe smicallef/spiderfoot.git Lazza/Carbon14 sherlock-project/sherlock.git WebBreacher/WhatsMyName.git martinvigo/email2phonenumber.git aboul3la/Sublist3r.git s0md3v/Photon.git GuidoBartoli/sherloq.git opsdisk/metagoofil.git MalloyDelacroix/DownloaderForReddit.git laramies/theHarvester.git lanmaster53/recon-ng.git"
+osint_gits="NickSanzotta/linkScrape.git mxrch/GHunt.git AmIJesse/Elasticsearch-Crawler.git twintproject/twint.git Und3rf10w/kali-anonsurf.git AzizKpln/Moriarty-Project.git soxoj/maigret.git megadose/holehe.git smicallef/spiderfoot.git Lazza/Carbon14.git sherlock-project/sherlock.git WebBreacher/WhatsMyName.git martinvigo/email2phonenumber.git aboul3la/Sublist3r.git s0md3v/Photon.git GuidoBartoli/sherloq.git opsdisk/metagoofil.git MalloyDelacroix/DownloaderForReddit.git laramies/theHarvester.git lanmaster53/recon-ng.git"
 dfp_pips="yubikey-manager"
 program_dir="~/Downloads/Programs"
 script_dir="~/Documents/Scripts"
@@ -79,8 +79,8 @@ install_git_pip(){
 }
 gpg_generator(){
     sudo apt-get install -y gpg scdaemon pcscd python3-ptyprocess
-    for pip_pkg in $dfp_pips;do  sudo -H pip "$pip_pkg";done #install yubikeymanager os agnostic
-    git_installer https://github.com/Logicwax/gpg-provision
+    for pip_pkg in $dfp_pips;do  pip3 install"$pip_pkg";done #install yubikeymanager os agnostic
+    git_installer https://github.com/Logicwax/gpg-provision.git
     read -p "Generate GPG cryptographic key pair now? (y/n): " gpg_response
     if [ "$gpg_response" == "y" ];then
         ./gpg-provision
@@ -213,7 +213,7 @@ linux_update_all(){
     sudo apt update --fix-missing
     sudo apt -y upgrade
     sudo apt --fix-broken install
-    sudo -H pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 sudo -H pip install -U
+    pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
     #update git repos
     for git_repo in $osint_gits;do git_update "https://github.com/$git_repo";done
 }
