@@ -4,9 +4,9 @@
 # detect  OS
     os=$(uname)
 # check for internet
-    if nc -zw1 google.com 443;then
+    if nc -zw1 google.com 443 &> /dev/null;then
     #assume Internet available.
-        echo
+        echo &> /dev/null
     else
         #assume Offline.
         printf "No Internet Detected.\nCheck Internet Connection and try again.\n"
