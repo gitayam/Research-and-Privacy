@@ -13,8 +13,8 @@
         exit 1
     fi
 ### Global Variables ###
-osint_pips="snscrape gallery-dl yt-dlp youtube-tool nested-lookup internetarchive ripgrep waybackpy search-that-hash h8mail streamlink Instalooter Instaloader toutatis redditsfinder bdfr matplotlib xeuledoc socialscan holehe testresources pipenv webscreenshot"
-osint_gits="mxrch/GHunt.git AmIJesse/Elasticsearch-Crawler.git twintproject/twint Und3rf10w/kali-anonsurf AzizKpln/Moriarty-Project soxoj/maigret megadose/holehe smicallef/spiderfoot.git Lazza/Carbon14 sherlock-project/sherlock.git WebBreacher/WhatsMyName.git martinvigo/email2phonenumber.git aboul3la/Sublist3r.git s0md3v/Photon.git GuidoBartoli/sherloq.git opsdisk/metagoofil.git MalloyDelacroix/DownloaderForReddit.git laramies/theHarvester.git lanmaster53/recon-ng.git"
+osint_pips="snscrape gallery-dl yt-dlp youtube-tool nested-lookup internetarchive ripgrep waybackpy search-that-hash h8mail streamlink Instalooter Instaloader toutatis redditsfinder bdfr beautifulsoup4 bs4 lxml matplotlib xeuledoc socialscan holehe testresources pipenv webscreenshot"
+osint_gits="NickSanzotta/linkScrape.git mxrch/GHunt.git AmIJesse/Elasticsearch-Crawler.git twintproject/twint Und3rf10w/kali-anonsurf AzizKpln/Moriarty-Project soxoj/maigret megadose/holehe smicallef/spiderfoot.git Lazza/Carbon14 sherlock-project/sherlock.git WebBreacher/WhatsMyName.git martinvigo/email2phonenumber.git aboul3la/Sublist3r.git s0md3v/Photon.git GuidoBartoli/sherloq.git opsdisk/metagoofil.git MalloyDelacroix/DownloaderForReddit.git laramies/theHarvester.git lanmaster53/recon-ng.git"
 dfp_pips="yubikey-manager"
 ### Functions ### 
 git_installer(){ # Function for installing Git
