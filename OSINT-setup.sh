@@ -235,8 +235,8 @@ linux_user_interface(){
 }
 linux_install_osint_tools(){
     basic_pkgs="build-essential dkms snapd gcc make perl python3-pip python3 vlc curl git apt-transport-https python3.9"
-    osint_pkgs="ffmpeg youtube-dl yt-dlp libncurses5-dev filezilla libffi-dev kazam keepassxc subversion default-jre mediainfo-gui libimage-exiftool-perl mat2 webhttrack libcanberra-gtk-module"
-    osint_snaps="gallery-dl amass joplin-james-carroll ffsend"
+    osint_pkgs="ffmpeg youtube-dl yt-dlp libncurses5-dev filezilla libffi-dev code kazam keepassxc subversion default-jre mediainfo-gui libimage-exiftool-perl mat2 webhttrack libcanberra-gtk-module"
+    osint_snaps="gallery-dl amass joplin-james-carroll ffsend drawio"
     
     sudo -S "$system_password"  apt update --fix-missing
 
@@ -262,7 +262,14 @@ linux_install_osint_tools(){
     sudo cp cid.desktop /usr/share/applications/
     rm cid.desktop
 
+    # install visual studio code for linux
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+    sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+    sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+    rm -f packages.microsoft.gpg
+
     #install required linux packages
+    sudo -S system_password apt update
     for pkg in $basic_pkgs;do sudo apt install -y "$pkg";done #install basic linux packages
     for pkg in $osint_pkgs;do sudo apt install -y "$pkg";done
     for snap in $osint_snaps;do sudo snap install "$snap";done #install basic snaps
@@ -274,6 +281,7 @@ linux_install_osint_tools(){
     git_installer https://github.com/Datalux/Osintgram.git
     python3 -m venv venv
     source venv/bin/activate
+
     read -p "set up with instagram creds (y/n):" setup_var
     if [ "$setup_var" == 'y' ];then 
     make setup #(This asks for IG username/pass, skip if desired)
@@ -333,11 +341,11 @@ upgrade_system(){
 }
 ### Menu and Run Script ###
 PS3='Please enter your choice: '
-options=("Set Up OSINT Infastructure" "Setup Firefox" "Install Only Git and pip Tools" "Upgrade System" "Quit")
+options=("Set Up Computer" "Setup Firefox" "Install Only Git and PIP Tools" "GPG Setup" "Upgrade System" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Set Up OSINT Infastructure")
+        "Set Up Computer")
             base_setup
             ;;
         "Setup Firefox")
@@ -346,8 +354,11 @@ do
         "Upgrade System")
             upgrade_system
             ;;
-        "Install Only Git and pip Tools")
+        "Install Only Git and PIP Tools")
             install_git_pip
+            ;;
+        "GPG Setup")
+            gpg_generator
             ;;
         "Quit")
             break

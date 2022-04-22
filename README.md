@@ -1,17 +1,25 @@
 # Research and Privacy
  System set up for research and use using secure tools and configurations
-Script Usage
+# Script Usage & Install 
 Make the download script executable using the following command in the Terminal App
 `chmod 755 ./OSINT_setup.sh`
 
+# System Requirements 
+macOS or Debian Based Linux
+
 # Credits
-Based and expanded from 2022 Michael Bazzell OSINT 9
+## Michael Bazzell 
+Based and expanded from 2022 Michael Bazzell OSINT 9. His books and guides are great and always cutting edge, this script is intended to make the tools even easier to start on macOS or Linux. Highly recommend you buy his [books](https://inteltechniques.com/books.html)
+
+## [Logicwax](https://github.com/Logicwax)
+The guides provided in this repo are what got me started using GPG and Yubikey. They are introduced here though you should consider using an air-gapped separate system when generating your gpg key pairs
+
 # TOOLS and Packages used
 ## GPG Setup
 - [gpg-provision](https://github.com/Logicwax/gpg-provision): easy interface for generating a full GPG keychain (Master CA key + 3 subkeys), generating backup files, revocation certifications, public ssh keys, and provisoning yubikeys/smart cards with these keys (one yubikey/smartcard for the CA master key to enable expiration bumping and signing others public keys, and another yubikey/smartcard to hold the 3-subkeys for day-today usage such as signing, authorizing, and decryption).
+- [gpg-agent setup](): set up environment to work with yubikey for OpenPGP based SSH keys
 - [GPG Suite](https://gpgtools.org/)
 - [yubikey manager](yubikey-manager)
-- [gpg-agent setup](): set up environment to work with yubikey for OpenPGP based SSH keys
 - [Thunderbird](https://www.thunderbird.net/en-US/thunderbird/all/): free email application that’s easy to set up and customize and works well with GPG and Yubikey
 ## Installed Git Repos
 - [Amass](https://github.com/OWASP/Amass)
@@ -29,9 +37,11 @@ Based and expanded from 2022 Michael Bazzell OSINT 9
 - [kali-anonstealth](https://github.com/Und3rf10w/kali-anonsurf)
 - [Metagoofil](https://github.com/opsdisk/metagoofil)
 - [Moriarty-Project V2.6](https://github.com/AzizKpln/Moriarty-Project)
+- [nmap](https://nmap.org/)
 - [OSINTgram](https://github.com/Datalux/Osintgram.git)
 - [Photon](https://github.com/s0md3v/Photon)
 - [recon-ng](https://github.com/lanmaster53/recon-ng)
+- [redditsfinder](https://github.com/Fitzy1293/redditsfinder)
 - [Ripgrep](https://github.com/BurntSushi/ripgrep)
 - [sublist3r](https://github.com/aboul3la/Sublist3r)
 - [sherlock](https://github.com/sherlock-project/sherlock)
@@ -39,6 +49,7 @@ Based and expanded from 2022 Michael Bazzell OSINT 9
 - [SNScrape](https://github.com/JustAnotherArchivist/snscrape)
 - [twint](https://github.com/twintproject/twint)
 - [The Harvester](https://github.com/laramies/theHarvester)
+
 
 ### Applications Installed
 - [Android Studio](https://developer.android.com/studio)
