@@ -88,6 +88,7 @@ My go to bash debugger and all around proofreading tool
 - [Cryptomator](https://cryptomator.org/)
 - [Cyberduck](https://cyberduck.io/) || [Filezilla](https://filezilla-project.org/)
 - [Draw.io](https://draw.io)
+- [Element Messenger](https://element.io)
 - [Google Earth](https://www.google.com/earth/versions/#earth-pro)
 - [iTerm2](https://iterm2.com/)
 - [Joplin](https://joplinapp.org/)

@@ -152,7 +152,7 @@ macos_update_icons(){
 
 }
 macos_install_osint_tools(){
-    brew_apps="firefox brave-browser thunderbird vlc tor-browser cryptomator audacity iterm2 cyberduck joplin visual-studio-code drawio clamxav google-earth-pro keepassxc wine-stable android-studio virtualbox virtualbox-extension-pack"
+    brew_apps="firefox brave-browser thunderbird vlc tor-browser element cryptomator audacity iterm2 cyberduck joplin visual-studio-code drawio clamxav google-earth-pro keepassxc wine-stable android-studio virtualbox virtualbox-extension-pack"
     brew_casts="ffsend nmap python3 tldr zenity youtube-dl ffmpeg yt-dlp pipenv openssl gpg-suite mat2 httrack exiftool internetarchive ripgrep instalooter fileicon wget streamlink libmagic mediainfo phantomjs xquartz"
     which brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew autoremove
@@ -236,7 +236,8 @@ linux_user_interface(){
 }
 linux_install_osint_tools(){
     basic_pkgs="build-essential dkms tldr clamav clamav-daemon clamtk snapd gcc make perl python3-pip python3 vlc curl git apt-transport-https python3.9"
-    osint_pkgs="ffmpeg youtube-dl yt-dlp libncurses5-dev filezilla libffi-dev code kazam keepassxc subversion default-jre mediainfo-gui libimage-exiftool-perl mat2 webhttrack libcanberra-gtk-module"
+    osint_pkgs="ffmpeg youtube-dl yt-dlp libncurses5-dev libffi-dev code kazam keepassxc subversion default-jre mediainfo-gui libimage-exiftool-perl mat2 webhttrack libcanberra-gtk-module"
+    dfp_pkgs="element-desktop filezilla"
     osint_snaps="gallery-dl amass joplin-james-carroll ffsend drawio"
     
     sudo -S "$system_password"  apt update --fix-missing
@@ -269,13 +270,18 @@ linux_install_osint_tools(){
     sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
     rm -f packages.microsoft.gpg
 
+    # Install element messenger for linux
+    sudo wget -O /usr/share/keyrings/element-io-archive-keyring.gpg https://packages.element.io/debian/element-io-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/element-io-archive-keyring.gpg] https://packages.element.io/debian/ default main" | sudo tee /etc/apt/sources.list.d/element-io.list
+
     # install cryptomator repo 
     sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
 
-    #install required linux packages
-    sudo -S system_password apt update
+    #install required linux packages, osint pkgs, dpf pkgs, ands snaps
+    sudo -S "$system_password" apt update
     for pkg in $basic_pkgs;do sudo apt install -y "$pkg";done #install basic linux packages
     for pkg in $osint_pkgs;do sudo apt install -y "$pkg";done
+    for pkg in $dfp_pkgs;do sudo apt install -y "$pkg";done
     for snap in $osint_snaps;do sudo snap install "$snap";done #install basic snaps
     # prevent from breaking if 1 install fails
     
