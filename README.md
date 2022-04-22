@@ -8,7 +8,7 @@ Make the download script executable using the following command in the Terminal 
 Based and expanded from 2022 Michael Bazzell OSINT 9
 # TOOLS and Packages used
 ## GPG Setup
-- [gpg-provision](https://github.com/Logicwax/gpg-provision): 
+- [gpg-provision](https://github.com/Logicwax/gpg-provision): easy interface for generating a full GPG keychain (Master CA key + 3 subkeys), generating backup files, revocation certifications, public ssh keys, and provisoning yubikeys/smart cards with these keys (one yubikey/smartcard for the CA master key to enable expiration bumping and signing others public keys, and another yubikey/smartcard to hold the 3-subkeys for day-today usage such as signing, authorizing, and decryption).
 - [GPG Suite](https://gpgtools.org/)
 - [yubikey manager](yubikey-manager)
 - [gpg-agent setup](): set up environment to work with yubikey for OpenPGP based SSH keys
