@@ -268,6 +268,9 @@ linux_install_osint_tools(){
     sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
     rm -f packages.microsoft.gpg
 
+    # install cryptomator repo 
+    sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
+
     #install required linux packages
     sudo -S system_password apt update
     for pkg in $basic_pkgs;do sudo apt install -y "$pkg";done #install basic linux packages
