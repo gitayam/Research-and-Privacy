@@ -326,7 +326,7 @@ linux_install_osint_tools(){
 
 base_setup(){
     # Make Directories
-     ~/Documents/Scripts ~/Documents/Icons
+    mkdir ~/Documents/Scripts ~/Documents/Icons
     #install required pip using python3.9 pip3
     install_git_pip
 
