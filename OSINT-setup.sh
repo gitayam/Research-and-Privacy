@@ -24,15 +24,15 @@ icon_dir="~/Documents/icons"
 git_installer(){ # Function for installing Git
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
     #pass git url as arg $1 and identify path for git download as program dir
-    git clone "$1" $program_dir
-    cd $program_dir/$git_name || printf "Something is wrong\nThat directory doesn't exist here"
+    git clone "$1" $program_dir/$git_name
+    cd $program_dir/$git_name || printf "Something is wrong\nThat directory doesn't exist here\n"
     sudo -H pip install -r requirements.txt -I
 }
 git_update(){
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
     #pass git url as arg $1
     cd  $program_dir || echo "assuming no git downloads" && exit
-    cd git_name || printf "Something is wrong\nThat directory doesn't exist here"
+    cd git_name || printf "Something is wrong\nThat directory doesn't exist here\n"
     git pull "$1"
 }
 inteltech_download(){ #which download is passed as argument
@@ -185,7 +185,7 @@ macos_install_osint_tools(){
     sudo -H python3 -m pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 sudo -H python3 -m pip install -U
 
     ##apply icons to script
-    cd $script_dir || printf "Something is wrong\nThat directory doesn't exist here"
+    cd $script_dir || printf "Something is wrong\nThat directory doesn't exist here\n"
     fileicon set Domain\ Tool $icon_dir/domains.png
     fileicon set Breaches-Leaks\ Tool $icon_dir/elasticsearch.png
     fileicon set WebScreenShot $icon_dir/eyewitness.png
@@ -260,7 +260,7 @@ linux_install_osint_tools(){
     inteltech_download tools
     downloaded_inteltech_path="$USER/Desktop/tools"
     #install caller id
-    cd $script_dir || printf "Something is wrong\nThat directory doesn't exist here"
+    cd $script_dir || printf "Something is wrong\nThat directory doesn't exist here\n"
     curl -u osint9:book143wt -O  https://inteltechniques.com/osintbook9/cid.sh
     chmod +x cid.sh
     curl -u osint9:book143wt -O  https://inteltechniques.com/osintbook9/cid.desktop
@@ -310,7 +310,7 @@ linux_install_osint_tools(){
     sleep 3 #pause for user to read
     echo "Double Click for GUI or java -jar ripme.jar for CLI" 
     sleep 1
-    cd  $program_dir || printf "Something is wrong\nThat directory doesn't exist here"
+    cd  $program_dir || printf "Something is wrong\nThat directory doesn't exist here\n"
     wget https://github.com/ripmeapp/ripme/releases/latest/download/ripme.jar
     chmod +x ripme.jar
 
