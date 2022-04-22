@@ -35,7 +35,7 @@ git_installer(){ # Function for installing Git
 git_update(){
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
     #pass git url as arg $1
-    cd  $program_dir || echo "assuming no git downloads" && exit
+    #cd  $program_dir || echo "assuming no git downloads" && exit
     cd $program_dir/$git_name || printf "Something is wrong\nThat directory doesn't exist here\n"
     git pull "$1"
 }
