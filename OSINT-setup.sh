@@ -24,9 +24,13 @@ icon_dir="~/Documents/Icons"
 git_installer(){ # Function for installing Git
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
     #pass git url as arg $1 and identify path for git download as program dir
-    git clone "$1" "$program_dir"/"$git_name".git
-    cd $program_dir/$git_name || printf "Something is wrong\nThat directory doesn't exist here\n"
+    cd $program_dir
+    git clone "$1"
+    ##assume in program dir
+    cd ./$git_name || printf "Something is wrong\nThat directory doesn't exist here\n"
     pip3 install -r requirements.txt -I
+    #return back to program dir
+    cd $program_dir
 }
 git_update(){
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
@@ -36,7 +40,7 @@ git_update(){
     git pull "$1"
 }
 inteltech_download(){ #which download is passed as argument
-    downloaded_INTELtech_path="$USER/Desktop/$1"
+    downloaded_INTELtech_path="~/Desktop/$1"
     curl -u osint9:book143wt -O --output-dir ~/Desktop https://inteltechniques.com/osintbook9/"{$1}".zip
     unzip "$downloaded_INTELtech_path".zip -d  ~/Desktop/
     rm "$downloaded_INTELtech_path".zip
@@ -44,7 +48,7 @@ inteltech_download(){ #which download is passed as argument
 setup_firefox(){
     #install Firefox Profile
     inteltech_download ff-template 
-    downloaded_INTELtech_path="$USER/Desktop/ff-template"
+    downloaded_INTELtech_path="~/Desktop/ff-template"
      if [ "$os" == "Darwin" ];then
         #open /Applications/Firefox.app/ #FIXME: might be best to open firefox and close, but could be an issue
         cp -R ff-template/* ~/Library/Application\ Support/Firefox/Profiles/*.default-release
