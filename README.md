@@ -37,7 +37,7 @@ Some of the tools and configurations were identified by carey parker. I highly r
 - [holehe](https://github.com/megadose/holehe)
 - [instaloader](https://instaloader.github.io/)
 - [instaLooter](https://github.com/althonos/InstaLooter)
-- [kali-anonstealth](https://github.com/Und3rf10w/kali-anonsurf)
+- [linkScrap](https://github.com/NickSanzotta/linkScrape.git)
 - [Metagoofil](https://github.com/opsdisk/metagoofil)
 - [Moriarty-Project V2.6](https://github.com/AzizKpln/Moriarty-Project)
 - [nmap](https://nmap.org/)
