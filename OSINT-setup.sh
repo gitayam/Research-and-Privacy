@@ -323,7 +323,7 @@ linux_install_osint_tools(){
 
 base_setup(){
     # Make Directories
-    mkdir -p "$program_dir" "$script_dir" "$icon_dir"
+    mkdir -p $program_dir $script_dir $icon_dir
     #install required pip using python3.9 pip3
     install_git_pip
 
