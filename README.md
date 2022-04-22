@@ -84,7 +84,7 @@ My go to bash debugger and all around proofreading tool
 - [Android Studio](https://developer.android.com/studio)
 - [Audacity](https://www.audacityteam.org/)
 - [Brave Browser](https://brave.com/)
-- [ClamsAV](https://www.clamav.net/)
+- [ClamAV](https://www.clamav.net/)
 - [Cryptomator](https://cryptomator.org/)
 - [Cyberduck](https://cyberduck.io/) || [Filezilla](https://filezilla-project.org/)
 - [Draw.io](https://draw.io)
