@@ -1,5 +1,7 @@
 # Research and Privacy
  System set up for research and use using secure tools and configurations
+
+
 # Script Usage & Install 
 Make the download script executable using the following command in the Terminal App
 `chmod 755 ./OSINT_setup.sh`
@@ -16,6 +18,9 @@ The guides provided in this repo are what got me started using GPG and Yubikey. 
 
 ## [Carey Parker](https://firewallsdontstopdragons.com/)
 Some of the tools and configurations were identified by carey parker. I highly recommend his [podcast](https://firewallsdontstopdragons.com/podcast/)
+
+## [Shell Check](https://www.shellcheck.net/)
+My go to bash debugger and all around proofreading tool
 
 # TOOLS and Packages used
 ## GPG Setup
