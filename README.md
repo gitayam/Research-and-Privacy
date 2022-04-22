@@ -34,7 +34,10 @@ macOS or Debian Based Linux
 ## [Michael Bazzell](https://inteltechniques.com/) 
 Based and expanded from 2022 Michael Bazzell OSINT 9. His books and guides are great and always cutting edge, this script is intended to make the tools even easier to start on macOS or Linux. Highly recommend you buy his [books](https://inteltechniques.com/books.html)
 
+## Element Messenger Chats for [OSINT](https://matrix.to/#/#osint-chat:matrix.org) [Privacy](https://matrix.to/#/#main:privacyguides.org)
+
 ## [Logicwax](https://github.com/Logicwax)
+
 The guides provided in this repo are what got me started using GPG and Yubikey. They are introduced here though you should consider using an air-gapped separate system when generating your gpg key pairs
 
 ## [Carey Parker](https://firewallsdontstopdragons.com/)
