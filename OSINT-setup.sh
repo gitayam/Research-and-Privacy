@@ -247,7 +247,7 @@ linux_install_osint_tools(){
 
     #install vm files from intel techniques website
     inteltech_download vm-files
-    downloaded_INTELtech_path="$USER/Desktop/vm-files"
+    downloaded_INTELtech_path="~/Desktop/vm-files"
     cp "$downloaded_INTELtech_path"/scripts/*  $script_dir/
     cp "$downloaded_INTELtech_path"/icons/*  $icon_dir/  
     sudo cp "$downloaded_INTELtech_path"/shortcuts/* /usr/share/applications/
@@ -257,7 +257,7 @@ linux_install_osint_tools(){
     setup_firefox
     #install Search Tools
     inteltech_download tools
-    downloaded_INTELtech_path="$USER/Desktop/tools"
+    downloaded_INTELtech_path="~/Desktop/tools"
     #install caller id
     cd $script_dir || printf "Something is wrong\nThat directory doesn't exist here\n"
     curl -u osint9:book143wt -O  https://inteltechniques.com/osintbook9/cid.sh
@@ -323,7 +323,7 @@ linux_install_osint_tools(){
 
 base_setup(){
     # Make Directories
-    mkdir -p $program_dir $script_dir $icon_dir
+    mkdir ~/Downloads/Programs ~/Documents/Scripts ~/Documents/Icons
     #install required pip using python3.9 pip3
     install_git_pip
 
