@@ -18,8 +18,8 @@ osint_pips="snscrape gallery-dl yt-dlp youtube-tool nested-lookup internetarchiv
 osint_gits="NickSanzotta/linkScrape.git mxrch/GHunt.git AmIJesse/Elasticsearch-Crawler.git twintproject/twint Und3rf10w/kali-anonsurf AzizKpln/Moriarty-Project soxoj/maigret megadose/holehe smicallef/spiderfoot.git Lazza/Carbon14 sherlock-project/sherlock.git WebBreacher/WhatsMyName.git martinvigo/email2phonenumber.git aboul3la/Sublist3r.git s0md3v/Photon.git GuidoBartoli/sherloq.git opsdisk/metagoofil.git MalloyDelacroix/DownloaderForReddit.git laramies/theHarvester.git lanmaster53/recon-ng.git"
 dfp_pips="yubikey-manager"
 program_dir="~/Downloads/Programs"
-script_dir="~/Documents/scripts"
-icon_dir="~/Documents/icons"
+script_dir="~/Documents/Scripts"
+icon_dir="~/Documents/Icons"
 ### Functions ### 
 git_installer(){ # Function for installing Git
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
