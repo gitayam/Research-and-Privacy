@@ -110,6 +110,7 @@ macos_upgrade_all(){
     rm -rf "$(brew --cache)"
     brew doctor
     brew missing
+    sudo -S "$system_password" periodic daily weekly monthly
     sudo -H python3 -m pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 sudo -H python3 -m pip install -U
     #use function to pull request for all git repos
     for git_repo in $osint_gits;do git_update "https://github.com/$git_repo";done
@@ -341,6 +342,9 @@ upgrade_system(){
         #assume not linux or mac
         exit 1
     fi
+    # perform other database updates
+    tldr --update
+    freshclam
 }
 ### Menu and Run Script ###
 PS3='Please enter your choice: '
