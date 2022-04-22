@@ -24,6 +24,12 @@ To add, remove, or modify the tools and pkgs being installed search for the foll
 # System Requirements 
 macOS or Debian Based Linux
 
+# To-Do
+- Update Firefox configurations and plugins
+- Create Brave Browser privacy export
+- Finish GPG Environment Section
+- Create Print out with Tool description and TLDR use for Research
+
 # Credits
 ## [Michael Bazzell](https://inteltechniques.com/) 
 Based and expanded from 2022 Michael Bazzell OSINT 9. His books and guides are great and always cutting edge, this script is intended to make the tools even easier to start on macOS or Linux. Highly recommend you buy his [books](https://inteltechniques.com/books.html)
@@ -57,7 +63,7 @@ My go to bash debugger and all around proofreading tool
 - [holehe](https://github.com/megadose/holehe)
 - [instaloader](https://instaloader.github.io/)
 - [instaLooter](https://github.com/althonos/InstaLooter)
-- [linkScrap](https://github.com/NickSanzotta/linkScrape.git)
+- [linkScrape](https://github.com/NickSanzotta/linkScrape.git)
 - [Metagoofil](https://github.com/opsdisk/metagoofil)
 - [Moriarty-Project V2.6](https://github.com/AzizKpln/Moriarty-Project)
 - [nmap](https://nmap.org/)
