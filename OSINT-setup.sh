@@ -72,9 +72,9 @@ install_git_pip(){
         echo "Something is wrong, not detected as macOS or Linux"
     fi
     #install base level pips
-    for pip_pkg in $base_pips;do  sudo pip3 install "$pip_pkg";done
+    for pip_pkg in $base_pips;do pip3 install "$pip_pkg";done
     #install required pip using python3.9 pip3
-    for pip_pkg in $osint_pips;do  sudo pip3 install "$pip_pkg";done
+    for pip_pkg in $osint_pips;do pip3 install "$pip_pkg";done
     #install several git repos
     for git_repo in $osint_gits;do git_installer "https://github.com/$git_repo";done
 
