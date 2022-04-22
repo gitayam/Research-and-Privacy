@@ -26,13 +26,13 @@ git_installer(){ # Function for installing Git
     #pass git url as arg $1 and identify path for git download as program dir
     git clone "$1" $program_dir/$git_name
     cd $program_dir/$git_name || printf "Something is wrong\nThat directory doesn't exist here\n"
-    sudo -H pip install -r requirements.txt -I
+    pip3 install -r requirements.txt -I
 }
 git_update(){
     git_name=$(echo "$1"|cut -d '/' -f 5|cut -d '.' -f 1)
     #pass git url as arg $1
     cd  $program_dir || echo "assuming no git downloads" && exit
-    cd git_name || printf "Something is wrong\nThat directory doesn't exist here\n"
+    cd $program_dir/$git_name || printf "Something is wrong\nThat directory doesn't exist here\n"
     git pull "$1"
 }
 inteltech_download(){ #which download is passed as argument
