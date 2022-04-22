@@ -8,11 +8,14 @@ Make the download script executable using the following command in the Terminal 
 macOS or Debian Based Linux
 
 # Credits
-## Michael Bazzell 
+## [Michael Bazzell](https://inteltechniques.com/) 
 Based and expanded from 2022 Michael Bazzell OSINT 9. His books and guides are great and always cutting edge, this script is intended to make the tools even easier to start on macOS or Linux. Highly recommend you buy his [books](https://inteltechniques.com/books.html)
 
 ## [Logicwax](https://github.com/Logicwax)
 The guides provided in this repo are what got me started using GPG and Yubikey. They are introduced here though you should consider using an air-gapped separate system when generating your gpg key pairs
+
+## [Carey Parker](https://firewallsdontstopdragons.com/)
+Some of the tools and configurations were identified by carey parker. I highly recommend his [podcast](https://firewallsdontstopdragons.com/podcast/)
 
 # TOOLS and Packages used
 ## GPG Setup
