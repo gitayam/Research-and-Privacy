@@ -6,8 +6,18 @@
 ## Install 
 `git clone https://github.com/gitayam/Research-and-Privacy.git && chmod 755 ./Research-and-Privacy/OSINT_setup.sh`
 ## Configure
-Make the download script executable using the following command in the Terminal App
+Make the download script executable using the following command in the Terminal App if you did not copy and past the above script
 `chmod 755 ./OSINT_setup.sh`
+
+To add, remove, or modify the tools and pkgs being installed search for the following:
+- basic_pkgs (Linux)
+- osint_pkgs (Linux)
+- osint_snaps (Linux)
+- osint_pips (both)
+- osint_gits (both)
+- dfp_pips (both)
+- brew_apps (macOS)
+- brew_casts (macOS)
 ## Use
 `./OSINT_setup.sh`
 
