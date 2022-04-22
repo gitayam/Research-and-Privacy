@@ -25,10 +25,10 @@ To add, remove, or modify the tools and pkgs being installed search for the foll
 macOS or Debian Based Linux
 
 # To-Do
-- Update Firefox configurations and plugins
-- Create Brave Browser privacy export
-- Finish GPG Environment Section
-- Create Print out with Tool description and TLDR use for Research
+- [ ] Update Firefox configurations and plugins
+- [ ] Create Brave Browser privacy export
+- [ ] Finish GPG Environment Section
+- [ ] Create Print out with Tool description and TLDR use for Research
 
 # Credits
 ## [Michael Bazzell](https://inteltechniques.com/) 
