@@ -3,6 +3,8 @@
 
 
 # Script Usage & Install 
+## All-in-One Install and Use
+`git clone https://github.com/gitayam/Research-and-Privacy.git && chmod 755 ./Research-and-Privacy/OSINT_setup.sh && ./Research-and-Privacy/OSINT_setup.sh`
 ## Install 
 `git clone https://github.com/gitayam/Research-and-Privacy.git && chmod 755 ./Research-and-Privacy/OSINT_setup.sh`
 ## Configure
@@ -18,6 +20,7 @@ To add, remove, or modify the tools and pkgs being installed search for the foll
 - dfp_pips (both)
 - brew_apps (macOS)
 - brew_casts (macOS)
+
 ## Use
 `./OSINT_setup.sh`
 
