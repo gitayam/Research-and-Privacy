@@ -91,7 +91,7 @@ gpg_generator(){
     # //https://gist.github.com/ixdy/6fdd1ecea5d17479a6b4dab4fe1c17eb
     printf "pinentry-program /usr/local/MacGPG2/libexec/pinentry-mac.app/Contents/MacOS/pinentry-mac
     enable-ssh-support\ndefault-cache-ttl 60\nmax-cache-ttl 120"|sudo tee /.gnupg/gpg-agent.conf
-    printf 'export GPG_TTY="$(tty)"\nexport SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)\ngpgconf --launch gpg-agent' >> "$USER"/.bash_profile
+    printf 'export GPG_TTY="$(tty)"\nexport SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)\ngpgconf --launch gpg-agent'  >> "$USER"/.bash_profile
     printf 'alias ssh="gpg-connect-agent updatestartuptty /bye > /dev/null; ssh"\nalias scp="gpg-connect-agent updatestartuptty /bye > /dev/null; scp"'>> "$USER"/.bash_profile
     #require touch on yubikey
     ykman openpgp set-touch aut on
