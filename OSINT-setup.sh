@@ -36,15 +36,15 @@ git_update(){
     git pull "$1"
 }
 inteltech_download(){ #which download is passed as argument
-    downloaded_inteltech_path="$USER/Desktop/$1"
+    downloaded_INTEL-tech_path="$USER/Desktop/$1"
     curl -u osint9:book143wt -O --output-dir ~/Desktop https://inteltechniques.com/osintbook9/"{$1}".zip
-    unzip "$downloaded_inteltech_path".zip -d  ~/Desktop/
-    rm "$downloaded_inteltech_path".zip
+    unzip "$downloaded_INTEL-tech_path".zip -d  ~/Desktop/
+    rm "$downloaded_INTEL-tech_path".zip
 }
 setup_firefox(){
     #install Firefox Profile
     inteltech_download ff-template 
-    downloaded_inteltech_path="$USER/Desktop/ff-template"
+    downloaded_INTEL-tech_path="$USER/Desktop/ff-template"
      if [ "$os" == "Darwin" ];then
         #open /Applications/Firefox.app/ #FIXME: might be best to open firefox and close, but could be an issue
         cp -R ff-template/* ~/Library/Application\ Support/Firefox/Profiles/*.default-release
@@ -57,7 +57,7 @@ setup_firefox(){
     fi
     #
     #linux
-    rm -rf "$downloaded_inteltech_path"
+    rm -rf "$downloaded_INTEL-tech_path"
 }
 
 install_git_pip(){
@@ -175,11 +175,11 @@ macos_install_osint_tools(){
     #install custom tools and scripts
     inteltech_download tools
     inteltech_download mac-files
-    downloaded_inteltech_path="$USER/Desktop/mac-files"
-    cp "$downloaded_inteltech_path"/scripts/*  $script_dir/
-    cp "$downloaded_inteltech_path"/icons/*  $icon_dir/  
-    sudo cp "$downloaded_inteltech_path"/shortcuts/* /usr/share/applications/
-    rm -rf "$downloaded_inteltech_path"
+    downloaded_INTEL-tech_path="$USER/Desktop/mac-files"
+    cp "$downloaded_INTEL-tech_path"/scripts/*  $script_dir/
+    cp "$downloaded_INTEL-tech_path"/icons/*  $icon_dir/  
+    sudo cp "$downloaded_INTEL-tech_path"/shortcuts/* /usr/share/applications/
+    rm -rf "$downloaded_INTEL-tech_path"
     rm -rf mac-files __MACOSX
     sed -i '' 's/\;leak\-lookup\_pub/leak\-lookup\_pub/g' h8mail_config.ini
     sudo -H python3 -m pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 sudo -H python3 -m pip install -U
@@ -248,17 +248,17 @@ linux_install_osint_tools(){
 
     #install vm files from intel techniques website
     inteltech_download vm-files
-    downloaded_inteltech_path="$USER/Desktop/vm-files"
-    cp "$downloaded_inteltech_path"/scripts/*  $script_dir/
-    cp "$downloaded_inteltech_path"/icons/*  $icon_dir/  
-    sudo cp "$downloaded_inteltech_path"/shortcuts/* /usr/share/applications/
-    rm -rf "$downloaded_inteltech_path"
+    downloaded_INTEL-tech_path="$USER/Desktop/vm-files"
+    cp "$downloaded_INTEL-tech_path"/scripts/*  $script_dir/
+    cp "$downloaded_INTEL-tech_path"/icons/*  $icon_dir/  
+    sudo cp "$downloaded_INTEL-tech_path"/shortcuts/* /usr/share/applications/
+    rm -rf "$downloaded_INTEL-tech_path"
 
     #install Firefox Profile
     setup_firefox
     #install Search Tools
     inteltech_download tools
-    downloaded_inteltech_path="$USER/Desktop/tools"
+    downloaded_INTEL-tech_path="$USER/Desktop/tools"
     #install caller id
     cd $script_dir || printf "Something is wrong\nThat directory doesn't exist here\n"
     curl -u osint9:book143wt -O  https://inteltechniques.com/osintbook9/cid.sh
