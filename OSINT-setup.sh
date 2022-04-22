@@ -235,7 +235,7 @@ linux_user_interface(){
     gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32
 }
 linux_install_osint_tools(){
-    basic_pkgs="build-essential dkms snapd gcc make perl python3-pip python3 vlc curl git apt-transport-https python3.9"
+    basic_pkgs="build-essential dkms tldr clamav clamav-daemon clamtk snapd gcc make perl python3-pip python3 vlc curl git apt-transport-https python3.9"
     osint_pkgs="ffmpeg youtube-dl yt-dlp libncurses5-dev filezilla libffi-dev code kazam keepassxc subversion default-jre mediainfo-gui libimage-exiftool-perl mat2 webhttrack libcanberra-gtk-module"
     osint_snaps="gallery-dl amass joplin-james-carroll ffsend drawio"
     
