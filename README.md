@@ -12,10 +12,10 @@ Make the download script executable using the following command in the Terminal 
 
 To add, remove, or modify the tools and pkgs being installed search for the following:
 - basic_pkgs (Linux)
-- osint_pkgs (Linux)
-- osint_snaps (Linux)
-- osint_pips (both)
-- osint_gits (both)
+- research_pkgs (Linux)
+- research_snaps (Linux)
+- research_pips (both)
+- research_gits (both)
 - dfp_pips (both)
 - brew_apps (macOS)
 - brew_casts (macOS)
