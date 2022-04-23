@@ -24,6 +24,9 @@ To add, remove, or modify the tools and pkgs being installed search for the foll
 ## Use
 `./OSINT_setup.sh`
 
+## Update Repo
+Move to directory with repo and run "git pull": `cd /path/Research-and-Privacy/ && git pull https://github.com/gitayam/Research-and-Privacy.git`
+
 # System Requirements 
 macOS or Debian Based Linux
 

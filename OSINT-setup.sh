@@ -118,8 +118,6 @@ macos_upgrade_all(){
     brew missing
     sudo -S "$system_password" periodic daily weekly monthly
     sudo -H python3 -m pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 sudo -H python3 -m pip install -U
-    #use function to pull request for all git repos
-    for git_repo in $osint_gits;do git_update "https://github.com/$git_repo";done
     softwareupdate -ia
 }
 macos_update_icons(){
@@ -217,8 +215,6 @@ linux_update_all(){
     sudo apt -y upgrade
     sudo apt --fix-broken install
     pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
-    #update git repos
-    for git_repo in $osint_gits;do git_update "https://github.com/$git_repo";done
 }
 
 linux_install_browsers(){
@@ -354,6 +350,8 @@ upgrade_system(){
         #assume not linux or mac
         exit 1
     fi
+    #update git repos
+    for git_repo in $osint_gits;do git_update "https://github.com/$git_repo";done
     # perform other database updates
     tldr --update
     freshclam
