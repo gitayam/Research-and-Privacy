@@ -1,9 +1,5 @@
 # Research and Privacy
  System set up for research and use using secure tools and configurations
-# IMPORTANT: About Username And Password
-For this script to function fully, the username and password from [Open Source Intelligence Techniques (Ninth Edition 2022)](https://inteltechniques.com/book1.html) is required. 
-
-The pip and Git tools can still be installed but the custom scripts, firefox configuration, icons, and tools require the password found in the book.
 
 # Script Usage & Install 
 ## All-in-One Install and Use
@@ -40,8 +36,6 @@ macOS or Debian Based Linux
 - [ ] Create Print out with Tool description and TLDR use for Research
 
 # Credits
-## [Michael Bazzell](https://inteltechniques.com/) 
-Based and expanded from 2022 Michael Bazzell OSINT 9. His books and guides are great and always cutting edge, this script is intended to make the tools even easier to start on macOS or Linux. Highly recommend you buy his [books](https://inteltechniques.com/books.html)
 
 ## Element Messenger Chats for [OSINT](https://matrix.to/#/#osint-chat:matrix.org) [Privacy](https://matrix.to/#/#main:privacyguides.org)
 
@@ -74,7 +68,6 @@ My go to bash debugger and all around proofreading tool
 - [h8mail](https://github.com/khast3x/h8mail)
 - [holehe](https://github.com/megadose/holehe)
 - [instaloader](https://instaloader.github.io/)
-- [instaLooter](https://github.com/althonos/InstaLooter)
 - [linkScrape](https://github.com/NickSanzotta/linkScrape.git)
 - [Metagoofil](https://github.com/opsdisk/metagoofil)
 - [Moriarty-Project V2.6](https://github.com/AzizKpln/Moriarty-Project)
