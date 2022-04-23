@@ -332,9 +332,18 @@ base_setup(){
 
     echo "Type sudo password to use througout program, Leave blank for added security "
     read -s system_password
-    
-    read -p "Username for OSINT Techniques Resources (found in OSINT Techniques ninth edition): " osint_user
-    read -p "Password for OSINT Techniques Resources (found in OSINT Techniques ninth edition): " osint_pass
+    osint_pass_hash=$(echo "$osint_pass"|shasum -a 1)
+    osint_user_hash=$(echo "$osint_user"|shasum -a 1)
+    while [ "$osint_user_hash" != "848994be170ef9a56a131e0ec8c9febeef244a46" ];do
+        echo "The correct username is required to continue"
+        read -p "Username for OSINT Techniques Resources (found in OSINT Techniques ninth edition): " osint_user
+        osint_user_hash=$(echo "$osint_user"|shasum -a 1)
+    done
+    while [ "$osint_pass_hash" != "6e4466a563707738693bedc7787cea76a4f87d14" ];do
+        echo "The correct password is required to continue"
+        read -p "Password for OSINT Techniques Resources (found in OSINT Techniques ninth edition): " osint_pass
+        osint_user_hash=$(echo "$osint_user"|shasum -a 1)
+    do
     if [ "$os" == "Darwin" ];then
         macos_install_osint_tools
         sudo -S "$system_password" reboot
