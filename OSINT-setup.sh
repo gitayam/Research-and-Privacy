@@ -12,6 +12,10 @@
         printf "No Internet Detected.\nCheck Internet Connection and try again.\n"
         exit 1
     fi
+
+#### OSINT Techniques Username and Passowrd ### 
+osint_user="username_here"
+osint_pass="pass_here"
 ### Global Variables ###
 base_pips="coloredlogs censys rich testresources lxml matplotlib xeuledoc pipenv"
 osint_pips="snscrape gallery-dl yt-dlp youtube-tool nested-lookup internetarchive ripgrepy waybackpy search-that-hash h8mail streamlink Instalooter Instaloader toutatis redditsfinder bdfr beautifulsoup4 bs4 socialscan holehe webscreenshot"
@@ -40,7 +44,7 @@ git_update(){
 }
 inteltech_download(){ #which download is passed as argument
     downloaded_INTELtech_path="~/Desktop/$1"
-    curl -u osint9:book143wt -O --output-dir ~/Desktop https://inteltechniques.com/osintbook9/"{$1}".zip
+    curl -u "$osint_user":"$osint_pass" -O --output-dir ~/Desktop https://inteltechniques.com/osintbook9/"{$1}".zip
     unzip "$downloaded_INTELtech_path".zip -d  ~/Desktop/
     rm "$downloaded_INTELtech_path".zip
 }
@@ -259,9 +263,9 @@ linux_install_osint_tools(){
     downloaded_INTELtech_path="~/Desktop/tools"
     #install caller id
     cd ~/Downlsoads/Scripts || printf "Something is wrong\nThat directory doesn't exist here\n"
-    curl -u osint9:book143wt -O  https://inteltechniques.com/osintbook9/cid.sh
+    curl -u "$osint_user":"$osint_pass" -O  https://inteltechniques.com/osintbook9/cid.sh
     chmod +x cid.sh
-    curl -u osint9:book143wt -O  https://inteltechniques.com/osintbook9/cid.desktop
+    curl -u "$osint_user":"$osint_pass" -O  https://inteltechniques.com/osintbook9/cid.desktop
     chmod +x cid.desktop
     sudo cp cid.desktop /usr/share/applications/
     rm cid.desktop
@@ -328,6 +332,9 @@ base_setup(){
 
     echo "Type sudo password to use througout program, Leave blank for added security "
     read -s system_password
+    
+    read -p "Username for OSINT Techniques Resources (found in OSINT Techniques ninth edition): " osint_user
+    read -p "Password for OSINT Techniques Resources (found in OSINT Techniques ninth edition): " osint_pass
     if [ "$os" == "Darwin" ];then
         macos_install_osint_tools
         sudo -S "$system_password" reboot
