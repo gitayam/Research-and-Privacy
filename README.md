@@ -1,6 +1,9 @@
 # Research and Privacy
  System set up for research and use using secure tools and configurations
+# IMPORTANT: About Username And Password
+For this script to function fully, the username and password from [Open Source Intelligence Techniques (Ninth Edition 2022)](https://inteltechniques.com/book1.html) is required. 
 
+The pip and Git tools can still be installed but the custom scripts, firefox configuration, icons, and tools require the password found in the book.
 
 # Script Usage & Install 
 ## All-in-One Install and Use
