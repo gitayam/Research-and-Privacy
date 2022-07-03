@@ -1,16 +1,24 @@
 # Research and Privacy
- System set up for research and use using secure tools and configurations
 
-# Script Usage & Install 
+System set up for research and use using secure tools and configurations
+
+# Script Usage & Install
+
 ## All-in-One Install and Use
+
 `git clone https://github.com/gitayam/Research-and-Privacy.git && ./Research-and-Privacy/OSINT_setup.sh`
-## Install 
+
+## Install
+
 `git clone https://github.com/gitayam/Research-and-Privacy.git && chmod 755 ./Research-and-Privacy/OSINT_setup.sh`
+
 ## Configure
+
 Make the download script executable if needed using the following command in the Terminal App if you did not copy and past the above script
 `chmod 755 ./OSINT_setup.sh`
 
 To add, remove, or modify the tools and pkgs being installed search for the following:
+
 - basic_pkgs (Linux)
 - research_pkgs (Linux)
 - research_snaps (Linux)
@@ -21,15 +29,19 @@ To add, remove, or modify the tools and pkgs being installed search for the foll
 - brew_casts (macOS)
 
 ## Use
+
 `./OSINT_setup.sh`
 
 ## Update Repo
+
 Move to directory with repo and run "git pull": `cd /path/Research-and-Privacy/ && git pull https://github.com/gitayam/Research-and-Privacy.git`
 
-# System Requirements 
+# System Requirements
+
 macOS or Debian Based Linux
 
 # To-Do
+
 - [ ] Update Firefox configurations and plugins
 - [ ] Create Brave Browser privacy export
 - [ ] Finish GPG Environment Section
@@ -44,19 +56,25 @@ macOS or Debian Based Linux
 The guides provided in this repo are what got me started using GPG and Yubikey. They are introduced here though you should consider using an air-gapped separate system when generating your gpg key pairs
 
 ## [Carey Parker](https://firewallsdontstopdragons.com/)
+
 Some of the tools and configurations were identified by carey parker. I highly recommend his [podcast](https://firewallsdontstopdragons.com/podcast/)
 
 ## [Shell Check](https://www.shellcheck.net/)
+
 My go to bash debugger and all around proofreading tool
 
 # TOOLS and Packages used
+
 ## GPG Setup
+
 - [gpg-provision](https://github.com/Logicwax/gpg-provision): easy interface for generating a full GPG keychain (Master CA key + 3 subkeys), generating backup files, revocation certifications, public ssh keys, and provisoning yubikeys/smart cards with these keys (one yubikey/smartcard for the CA master key to enable expiration bumping and signing others public keys, and another yubikey/smartcard to hold the 3-subkeys for day-today usage such as signing, authorizing, and decryption).
 - [gpg-agent setup](): set up environment to work with yubikey for OpenPGP based SSH keys
 - [GPG Suite](https://gpgtools.org/)
 - [yubikey manager](yubikey-manager)
 - [Thunderbird](https://www.thunderbird.net/en-US/thunderbird/all/): free email application that’s easy to set up and customize and works well with GPG and Yubikey
+
 ## Installed Git Repos
+
 - [Amass](https://github.com/OWASP/Amass)
 - [Brew](https://brew.sh)
 - [Elasticsearch-Crawler](https://github.com/AmIJesse/Elasticsearch-Crawler)
@@ -84,8 +102,8 @@ My go to bash debugger and all around proofreading tool
 - [twint](https://github.com/twintproject/twint)
 - [The Harvester](https://github.com/laramies/theHarvester)
 
-
 ### Applications Installed
+
 - [Android Studio](https://developer.android.com/studio)
 - [Audacity](https://www.audacityteam.org/)
 - [Brave Browser](https://brave.com/)
